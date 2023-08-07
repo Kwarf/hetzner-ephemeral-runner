@@ -1,0 +1,29 @@
+name: "Ephemeral GitHub runners hosted on Hetzner Cloud"
+description: "GitHub Action to automatically create and shut down ephemeral self-hosted GitHub runners on Hetzner Cloud"
+inputs:
+  action:
+    description: >-
+      Specify the action:
+        - 'create' - will create a new runner
+        - 'remove' - will remove a previously created runner
+    required: true
+  github-token:
+    description: Fine-grained GitHub Personal Access Token with 'Read and write' access to 'Administration'
+    required: true
+  hetzner-token:
+    description: Hetzner Cloud API token with 'Read & Write' permissions
+    required: true
+  server-type:
+    description: Hetzner Cloud server type to create (default cx11)
+  server-location:
+    description: Server location, note that not all locations have all server types available (default fsn1)
+  server-image:
+    description: OS image to run (default ubuntu-22.04)
+  server-name:
+    description: Server name, required for the "remove" action, and should be passed from the "create" step
+outputs:
+  server-name:
+    description: The generated name for the runner.
+runs:
+  using: "node16"
+  main: "dist/index.js"

@@ -1,0 +1,24 @@
+{
+  "name": "hetzner-ephemeral-runner",
+  "description": "Ephemeral GitHub runners hosted on Hetzner Cloud",
+  "author": "Jimmy Bergström",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "package": "ncc build ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kwarf/hetzner-ephemeral-runner.git"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@octokit/core": "^4.2.4",
+    "@octokit/plugin-rest-endpoint-methods": "^7.2.3",
+    "hcloud-js": "^1.4.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1"
+  }
+}
