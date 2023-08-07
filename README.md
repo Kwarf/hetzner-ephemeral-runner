@@ -45,8 +45,8 @@ jobs:
         uses: Kwarf/hetzner-ephemeral-runner@v1
         with:
           action: create
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          hetzner-token: ${{ secrets.HETZNER_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
+          hetzner-token: ${{ secrets.HC_TOKEN }}
 
   build:
     name: Your build action
@@ -68,7 +68,7 @@ jobs:
         uses: Kwarf/hetzner-ephemeral-runner@v1
         with:
           action: remove
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          hetzner-token: ${{ secrets.HETZNER_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
+          hetzner-token: ${{ secrets.HC_TOKEN }}
           server-name: ${{ needs.create-runner.outputs.server-name }}
 ```
